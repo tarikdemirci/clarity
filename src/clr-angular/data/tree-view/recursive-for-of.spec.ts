@@ -38,10 +38,8 @@ const TEST_ROOT: TestNode = {
   `,
 })
 class TestComponent {
-  @ViewChild(ClrRecursiveForOf, { static: false })
-  recursiveForOf: ClrRecursiveForOf<TestNode>;
-  @ViewChild(TemplateRef, { static: false })
-  template: TemplateRef<ClrRecursiveForOfContext<TestNode>>;
+  @ViewChild(ClrRecursiveForOf) recursiveForOf: ClrRecursiveForOf<TestNode>;
+  @ViewChild(TemplateRef) template: TemplateRef<ClrRecursiveForOfContext<TestNode>>;
 
   root: TestNode | TestNode[] = TEST_ROOT;
   getChildren = getChildren;

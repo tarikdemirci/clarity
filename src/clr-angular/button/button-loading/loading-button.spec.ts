@@ -134,8 +134,7 @@ describe('Loading Buttons', () => {
     `,
 })
 class TestLoadingButtonComponent {
-  @ViewChild(ClrLoadingButton, { static: false })
-  loadingButtonInstance: ClrLoadingButton;
+  @ViewChild(ClrLoadingButton) loadingButtonInstance: ClrLoadingButton;
 
   buttonState: ClrLoadingState = <ClrLoadingState>ClrLoadingState.DEFAULT;
   disabled: boolean = false;

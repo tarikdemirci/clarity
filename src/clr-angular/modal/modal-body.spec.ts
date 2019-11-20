@@ -50,9 +50,7 @@ describe('ClrModalBody Directive', () => {
   `,
 })
 class TestComponent {
-  @ViewChild('testLabel', { static: false })
-  testLabel: ElementRef<HTMLElement>;
+  @ViewChild('testLabel') testLabel: ElementRef<HTMLElement>;
 
-  @ViewChild('testElement', { static: false })
-  testElement: ElementRef<HTMLElement>;
+  @ViewChild('testElement') testElement: ElementRef<HTMLElement>;
 }

@@ -13,8 +13,7 @@ import { ClrWizard } from '@clr/angular';
   templateUrl: './wizard-custom-buttons.demo.html',
 })
 export class WizardCustomButtonsDemo {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
 
   open = false;
   showWarning = false;

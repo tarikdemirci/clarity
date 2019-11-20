@@ -64,7 +64,7 @@ export class ClrSignpost {
    * Uses ContentChild to check for a user supplied element with the ClrSignpostTrigger on it.
    *
    */
-  @ContentChild(ClrSignpostTrigger, { static: false })
+  @ContentChild(ClrSignpostTrigger)
   set customTrigger(trigger: ClrSignpostTrigger) {
     this.useCustomTrigger = !!trigger;
   }

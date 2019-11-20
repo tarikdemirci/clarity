@@ -25,8 +25,7 @@ import { ClrStepper } from './stepper';
   `,
 })
 class ReactiveFormsTestComponent {
-  @ViewChild(ClrStepper, { static: false })
-  stepper: ClrStepper;
+  @ViewChild(ClrStepper) stepper: ClrStepper;
   showSecondStep = true;
   initialStep = '';
   form = new FormGroup({
@@ -48,10 +47,8 @@ class ReactiveFormsTestComponent {
   `,
 })
 class TemplateFormsTestComponent {
-  @ViewChild(ClrStepper, { static: false })
-  stepper: ClrStepper;
-  @ViewChild('testForm', { static: false })
-  form: FormGroup;
+  @ViewChild(ClrStepper) stepper: ClrStepper;
+  @ViewChild('testForm') form: FormGroup;
   showSecondStep = true;
   submit() {}
 }

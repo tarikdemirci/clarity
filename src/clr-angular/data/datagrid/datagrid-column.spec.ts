@@ -550,8 +550,7 @@ class StringFilterTest {
   filter = new TestStringFilter();
   field: string;
 
-  @ViewChild(DatagridStringFilter, { static: false })
-  stringFilter: DatagridStringFilter<number>;
+  @ViewChild(DatagridStringFilter) stringFilter: DatagridStringFilter<number>;
 }
 
 @Component({

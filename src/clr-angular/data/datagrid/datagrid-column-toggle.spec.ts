@@ -28,7 +28,7 @@ import { ClrPopoverEventsService } from '../../utils/popover/providers/popover-e
 class ColumnToggleTest {
   private mockColumnsService: MockColumnsService;
 
-  @ViewChild(TemplateRef, { static: false })
+  @ViewChild(TemplateRef)
   set templateRef(value: TemplateRef<any>) {
     this.mockColumnsService.templateRef = value;
   }

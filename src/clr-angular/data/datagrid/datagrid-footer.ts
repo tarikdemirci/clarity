@@ -46,8 +46,7 @@ export class ClrDatagridFooter<T = any> {
   /* reference to the enum so that template can access */
   public SELECTION_TYPE = SelectionType;
 
-  @ContentChild(ClrDatagridColumnToggle, { static: false })
-  toggle: ClrDatagridColumnToggle;
+  @ContentChild(ClrDatagridColumnToggle) toggle: ClrDatagridColumnToggle;
 
   get hasHideableColumns(): boolean {
     return this.columnsService.hasHideableColumns;

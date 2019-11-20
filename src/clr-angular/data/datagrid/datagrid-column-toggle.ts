@@ -89,13 +89,11 @@ export class ClrDatagridColumnToggle {
   };
   public openState;
 
-  @ContentChild(ClrDatagridColumnToggleTitle, { static: false })
-  customToggleTitle: ClrDatagridColumnToggleTitle;
-  @ContentChild(ClrDatagridColumnToggleButton, { static: false })
-  customToggleButton: ClrDatagridColumnToggleButton;
-  @ViewChild('menuDescription', { read: ElementRef, static: false })
+  @ContentChild(ClrDatagridColumnToggleTitle) customToggleTitle: ClrDatagridColumnToggleTitle;
+  @ContentChild(ClrDatagridColumnToggleButton) customToggleButton: ClrDatagridColumnToggleButton;
+  @ViewChild('menuDescription', { read: ElementRef })
   private menuDescriptionElement: ElementRef<HTMLElement>;
-  @ViewChild('allSelected', { read: ElementRef, static: false })
+  @ViewChild('allSelected', { read: ElementRef })
   private allSelectedElement: ElementRef<HTMLElement>;
 
   public get allColumnsVisible(): boolean {

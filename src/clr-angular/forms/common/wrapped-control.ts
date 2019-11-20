@@ -15,6 +15,7 @@ import {
   Renderer2,
   ElementRef,
   OnDestroy,
+  Directive,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { filter, distinctUntilChanged, startWith } from 'rxjs/operators';
@@ -29,6 +30,7 @@ import { NgControl } from '@angular/forms';
 import { ControlClassService } from './providers/control-class.service';
 import { MarkControlService } from './providers/mark-control.service';
 
+@Directive()
 export class WrappedFormControl<W extends DynamicWrapper> implements OnInit, OnDestroy {
   private ngControlService: NgControlService;
   private ifErrorService: IfErrorService;

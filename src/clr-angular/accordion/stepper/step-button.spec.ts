@@ -24,8 +24,7 @@ import { StepperService } from './providers/stepper.service';
   `,
 })
 class TestComponent {
-  @ViewChild(ClrStepButton, { static: false })
-  button: ClrStepButton;
+  @ViewChild(ClrStepButton) button: ClrStepButton;
   buttonType = ClrStepButtonType.Next;
   form = new FormGroup({ group: new FormGroup({}) });
 }

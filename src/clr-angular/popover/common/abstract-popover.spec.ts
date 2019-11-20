@@ -113,8 +113,7 @@ class TestPopover extends AbstractPopover {
     `,
 })
 class TestPopoverWithIfOpenDirective {
-  @ViewChild(TestPopover, { static: false })
-  testPopover: TestPopover;
+  @ViewChild(TestPopover) testPopover: TestPopover;
 }
 
 @Component({
@@ -125,9 +124,8 @@ class TestPopoverWithIfOpenDirective {
   providers: [IfOpenService, { provide: POPOVER_HOST_ANCHOR, useExisting: ElementRef }],
 })
 class InputFocusPopover {
-  @ViewChild('ignoreInput', { static: false })
-  ignore: ElementRef;
-  @ViewChild(forwardRef(() => TestPopoverIgnoreElement), { static: false })
+  @ViewChild('ignoreInput') ignore: ElementRef;
+  @ViewChild(forwardRef(() => TestPopoverIgnoreElement))
   popover: TestPopoverIgnoreElement;
 
   constructor(private ifOpenService: IfOpenService) {}

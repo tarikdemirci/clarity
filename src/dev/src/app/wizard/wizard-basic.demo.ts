@@ -10,7 +10,6 @@ import { ClrWizard } from '@clr/angular';
 
 @Component({ selector: 'clr-wizard-basic', templateUrl: './wizard-basic.demo.html' })
 export class WizardBasicDemo {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
   open: boolean = false;
 }

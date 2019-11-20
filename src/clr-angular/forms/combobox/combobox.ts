@@ -50,10 +50,8 @@ export function comboboxDomAdapterFactory(platformId: Object) {
   host: { '[class.clr-combobox]': 'true' },
 })
 export class ClrCombobox<T> implements AfterContentInit, OnDestroy {
-  @ViewChild('input', { static: false })
-  input: ElementRef;
-  @ContentChild(ClrOptions, { static: false })
-  options: ClrOptions;
+  @ViewChild('input') input: ElementRef;
+  @ContentChild(ClrOptions) options: ClrOptions;
   private subscription: Subscription;
 
   constructor(

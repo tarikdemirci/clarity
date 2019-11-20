@@ -53,6 +53,5 @@ export default function(): void {
     `,
 })
 class TestComponent {
-  @ViewChild('navIcon', { static: false })
-  navIcon: any;
+  @ViewChild('navIcon') navIcon: any;
 }

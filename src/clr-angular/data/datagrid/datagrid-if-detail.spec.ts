@@ -92,7 +92,6 @@ export default function(): void {
   template: `<ng-template [(clrIfDetail)]="detailState">${content}</ng-template>`,
 })
 class IfDetailTest {
-  @ViewChild(ClrIfDetail, { static: false })
-  detail: ClrIfDetail;
+  @ViewChild(ClrIfDetail) detail: ClrIfDetail;
   detailState = null;
 }

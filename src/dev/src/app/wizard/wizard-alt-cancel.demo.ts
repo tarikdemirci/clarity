@@ -13,8 +13,7 @@ import { ClrWizard } from '@clr/angular';
   templateUrl: './wizard-alt-cancel.demo.html',
 })
 export class WizardAltCancelDemo {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
 
   open = false;
   showCancelConfirm = false;

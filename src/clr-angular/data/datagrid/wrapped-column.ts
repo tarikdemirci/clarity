@@ -18,8 +18,7 @@ import { DynamicWrapper } from '../../utils/host-wrapping/dynamic-wrapper';
 export class WrappedColumn implements DynamicWrapper, AfterViewInit {
   _dynamic = false;
 
-  @ViewChild('columnPortal', { static: false })
-  templateRef: TemplateRef<void>;
+  @ViewChild('columnPortal') templateRef: TemplateRef<void>;
   columnView: EmbeddedViewRef<void>; // the columns projected view (in memory)
 
   ngAfterViewInit() {

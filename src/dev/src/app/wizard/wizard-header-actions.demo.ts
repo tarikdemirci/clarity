@@ -12,8 +12,7 @@ import { ClrWizard } from '@clr/angular';
   templateUrl: './wizard-header-actions.demo.html',
 })
 export class WizardHeaderActionsDemo {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
 
   open = false;
   userActive = true;

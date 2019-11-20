@@ -13,7 +13,9 @@
           "options": {
             "customWebpackConfig": {
               "path": "src/dev/custom-webpack.config.js",
-              "mergeStrategies": { "externals": "replace" }
+              "mergeStrategies": {
+                "externals": "replace"
+              }
             },
             "outputPath": "dist/dev",
             "index": "src/dev/src/index.html",
@@ -73,7 +75,9 @@
           "options": {
             "customWebpackConfig": {
               "path": "src/dev/custom-webpack.config.js",
-              "mergeStrategies": { "externals": "replace" }
+              "mergeStrategies": {
+                "externals": "replace"
+              }
             },
             "browserTarget": "dev:build"
           },
@@ -120,6 +124,11 @@
           "options": {
             "project": "src/clr-angular/ng-package.json",
             "tsConfig": "src/clr-angular/tsconfig.prod.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/clr-angular/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -155,6 +164,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/website/browser",
             "index": "src/website/src/index.html",
             "main": "src/website/src/main.ts",
@@ -213,6 +223,10 @@
                   "type": "initial",
                   "maximumWarning": "3mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -242,6 +256,11 @@
           "options": {
             "project": "src/clr-core/ng-package.json",
             "tsConfig": "src/clr-core/tsconfig.lib.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "src/clr-core/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -281,9 +300,13 @@
             "main": "src/dev-core/src/main.ts",
             "polyfills": "src/dev-core/src/polyfills.ts",
             "tsConfig": "src/dev-core/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
-              { "glob": "**/*", "input": "src/dev-core/api/", "output": "./api/" },
+              {
+                "glob": "**/*",
+                "input": "src/dev-core/api/",
+                "output": "./api/"
+              },
               "src/dev-core/src/favicon.ico",
               "src/dev-core/src/assets",
               "src/dev-core/src/manifest.json",
@@ -307,7 +330,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -316,6 +338,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -340,5 +366,8 @@
       "styleext": "scss"
     }
   },
-  "defaultProject": "dev"
+  "defaultProject": "dev",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -100,8 +100,7 @@ describe('Loading directive without listener', function() {
 
 @Component({ template: `<div *ngIf="displayed" [clrLoading]="loading"></div>` })
 class FullTest {
-  @ViewChild(ClrLoading, { static: false })
-  loadingDirective: ClrLoading;
+  @ViewChild(ClrLoading) loadingDirective: ClrLoading;
 
   public displayed = true;
   public loading = false;

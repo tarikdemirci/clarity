@@ -40,8 +40,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class ClrStepperPanel extends ClrAccordionPanel implements OnInit {
   isAccordion = false;
 
-  @ViewChild('headerButton', { static: false })
-  headerButton: ElementRef;
+  @ViewChild('headerButton') headerButton: ElementRef;
   private subscriptions: Subscription[] = [];
 
   get formGroup() {

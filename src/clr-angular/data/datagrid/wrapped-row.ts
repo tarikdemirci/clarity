@@ -18,8 +18,7 @@ import { DynamicWrapper } from '../../utils/host-wrapping/dynamic-wrapper';
 export class WrappedRow implements DynamicWrapper, AfterViewInit {
   _dynamic = false;
 
-  @ViewChild('rowPortal', { static: false })
-  templateRef: TemplateRef<void>;
+  @ViewChild('rowPortal') templateRef: TemplateRef<void>;
   rowView: EmbeddedViewRef<void>; // the rows projected view (in memory)
 
   ngAfterViewInit() {

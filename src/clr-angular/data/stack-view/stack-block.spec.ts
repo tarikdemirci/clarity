@@ -21,8 +21,7 @@ import { ClrStackViewModule } from './stack-view.module';
    `,
 })
 class BasicBlock {
-  @ViewChild(ClrStackBlock, { static: false })
-  blockInstance: ClrStackBlock;
+  @ViewChild(ClrStackBlock) blockInstance: ClrStackBlock;
 }
 
 @Component({
@@ -42,8 +41,7 @@ class BasicBlock {
    `,
 })
 class NestedBlocks {
-  @ViewChild('main', { static: false })
-  blockInstance: ClrStackBlock;
+  @ViewChild('main') blockInstance: ClrStackBlock;
 }
 
 @Component({
@@ -55,8 +53,7 @@ class NestedBlocks {
    `,
 })
 class DynamicBlock {
-  @ViewChild(ClrStackBlock, { static: false })
-  blockInstance: ClrStackBlock;
+  @ViewChild(ClrStackBlock) blockInstance: ClrStackBlock;
 
   expanded: boolean = false;
 }

@@ -17,8 +17,7 @@ import { DynamicWrapper } from '../../utils/host-wrapping/dynamic-wrapper';
 })
 export class WrappedCell implements DynamicWrapper, AfterViewInit {
   _dynamic = false;
-  @ViewChild('cellPortal', { static: false })
-  templateRef: TemplateRef<void>;
+  @ViewChild('cellPortal') templateRef: TemplateRef<void>;
   cellView: EmbeddedViewRef<void>; // the cells projected view
 
   ngAfterViewInit() {

@@ -35,8 +35,7 @@ import { ClrModalModule } from './modal.module';
    `,
 })
 class TestComponent {
-  @ViewChild(ClrModal, { static: false })
-  modalInstance: ClrModal;
+  @ViewChild(ClrModal) modalInstance: ClrModal;
 
   opened: boolean = true;
   closable: boolean = true;

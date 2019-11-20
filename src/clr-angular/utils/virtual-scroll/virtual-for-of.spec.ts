@@ -36,8 +36,7 @@ import { VirtualForOf } from './virtual-for-of';
   ],
 })
 class FullTest {
-  @ViewChild(VirtualForOf, { static: false })
-  virtualForOf: VirtualForOf<number>;
+  @ViewChild(VirtualForOf) virtualForOf: VirtualForOf<number>;
 
   numbers: number[] | NonNgIterable<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 }

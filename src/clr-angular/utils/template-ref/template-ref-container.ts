@@ -13,6 +13,5 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
     `,
 })
 export class TemplateRefContainer {
-  @ViewChild(TemplateRef, { static: false })
-  template: TemplateRef<any>;
+  @ViewChild(TemplateRef) template: TemplateRef<any>;
 }

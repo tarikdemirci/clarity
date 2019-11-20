@@ -22,8 +22,7 @@ import { StateDebouncer } from './providers/state-debouncer.provider';
 `,
 })
 class FullTest {
-  @ViewChild(ClrDatagridItems, { static: false })
-  datagridItems: ClrDatagridItems<number>;
+  @ViewChild(ClrDatagridItems) datagridItems: ClrDatagridItems<number>;
 
   numbers = [1, 2, 3, 4, 5];
 
@@ -38,8 +37,7 @@ class FullTest {
 `,
 })
 class TrackByIndexTest {
-  @ViewChild(ClrDatagridItems, { static: false })
-  datagridItems: ClrDatagridItems<number>;
+  @ViewChild(ClrDatagridItems) datagridItems: ClrDatagridItems<number>;
 
   numbers = [1, 2, 3, 4, 5];
 

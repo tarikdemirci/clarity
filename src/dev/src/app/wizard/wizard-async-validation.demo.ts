@@ -13,10 +13,8 @@ import { ClrWizard } from '@clr/angular';
   templateUrl: './wizard-async-validation.demo.html',
 })
 export class WizardAsyncValidation {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
-  @ViewChild('myForm', { static: false })
-  formData: any;
+  @ViewChild('wizard') wizard: ClrWizard;
+  @ViewChild('myForm') formData: any;
 
   open = false;
   answer = '';

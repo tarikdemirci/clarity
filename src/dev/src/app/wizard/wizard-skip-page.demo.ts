@@ -9,8 +9,7 @@ import { ClrWizard } from '@clr/angular';
 
 @Component({ selector: 'clr-wizard-skip-page', templateUrl: './wizard-skip-page.demo.html' })
 export class WizardSkipPageDemo {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
   skipStepTwo: boolean = true;
   _open: boolean = false;
 

@@ -38,8 +38,7 @@ import { NgControlService } from '../common/providers/ng-control.service';
 export class ClrCheckboxContainer implements OnDestroy {
   private subscriptions: Subscription[] = [];
   invalid = false;
-  @ContentChild(ClrLabel, { static: false })
-  label: ClrLabel;
+  @ContentChild(ClrLabel) label: ClrLabel;
   private inline = false;
   control: NgControl;
   // private formGroup: AbstractControl;

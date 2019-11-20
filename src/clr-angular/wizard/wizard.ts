@@ -209,8 +209,7 @@ export class ClrWizard implements OnDestroy, AfterContentInit, DoCheck {
 
   @ContentChildren(ClrWizardPage) pages: QueryList<ClrWizardPage>;
   @ContentChildren(ClrWizardHeaderAction) headerActions: QueryList<ClrWizardHeaderAction>;
-  @ViewChild('wizardTitle', { static: false })
-  wizardTitle: ElementRef;
+  @ViewChild('wizardTitle') wizardTitle: ElementRef;
 
   public get currentPage() {
     return this.navService.currentPage;

@@ -60,8 +60,7 @@ export class ClrDraggable<T> implements AfterContentInit, OnDestroy {
     this.componentFactory = this.cfr.resolveComponentFactory<ClrDraggableGhost<T>>(ClrDraggableGhost);
   }
 
-  @ContentChild(ClrIfDragged, { static: false })
-  customGhost: ClrIfDragged<T>;
+  @ContentChild(ClrIfDragged) customGhost: ClrIfDragged<T>;
 
   @Input('clrDraggable')
   set dataTransfer(value: T) {

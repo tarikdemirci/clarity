@@ -403,13 +403,13 @@ class RenderWidthTest {
   hasActions = false;
   selected: any[] = [];
   singleSelect;
-  @ViewChild('dgContainer', { static: false, read: ElementRef })
+  @ViewChild('dgContainer', { read: ElementRef })
   container: ElementRef;
-  @ViewChild('datagridDefault', { static: false, read: ElementRef })
+  @ViewChild('datagridDefault', { read: ElementRef })
   datagridDefault: ElementRef;
-  @ViewChild('datagridSingleSelect', { static: false, read: ElementRef })
+  @ViewChild('datagridSingleSelect', { read: ElementRef })
   datagridSingleSelect: ElementRef;
-  @ViewChild('datagridMultiSelect', { static: false, read: ElementRef })
+  @ViewChild('datagridMultiSelect', { read: ElementRef })
   datagridMultiSelect: ElementRef;
 }
 

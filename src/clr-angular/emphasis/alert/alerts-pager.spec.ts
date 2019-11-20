@@ -100,14 +100,12 @@ export default function() {
 
 @Component({ template: `<clr-alerts-pager [(clrCurrentAlertIndex)]="index"></clr-alerts-pager>` })
 export class TestIndex {
-  @ViewChild(ClrAlertsPager, { static: false })
-  pagerInstance: ClrAlertsPager;
+  @ViewChild(ClrAlertsPager) pagerInstance: ClrAlertsPager;
   index: number = 0;
 }
 
 @Component({ template: `<clr-alerts-pager [(clrCurrentAlert)]="currentAlert"></clr-alerts-pager>` })
 export class TestInstance {
-  @ViewChild(ClrAlertsPager, { static: false })
-  pagerInstance: ClrAlertsPager;
+  @ViewChild(ClrAlertsPager) pagerInstance: ClrAlertsPager;
   currentAlert: ClrAlert;
 }

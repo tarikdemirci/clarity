@@ -18,8 +18,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   template: `<clr-tree [clrLazy]="lazy">Hello world <clr-tree-node *ngIf="hasChild">Child</clr-tree-node></clr-tree>`,
 })
 class TestComponent {
-  @ViewChild(ClrTree, { static: false })
-  tree: ClrTree<void>;
+  @ViewChild(ClrTree) tree: ClrTree<void>;
 
   lazy = false;
   hasChild = false;

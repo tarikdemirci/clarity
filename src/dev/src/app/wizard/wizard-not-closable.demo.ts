@@ -9,7 +9,6 @@ import { ClrWizard } from '@clr/angular';
 
 @Component({ selector: 'clr-wizard-basic', templateUrl: './wizard-not-closable.demo.html' })
 export class WizardNotClosableDemo {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
   open: boolean = false;
 }

@@ -28,8 +28,7 @@ import { ClrStepper } from './stepper';
   `,
 })
 class ReactiveFormsTestComponent {
-  @ViewChild(ClrStepperPanel, { static: false })
-  step: ClrStepperPanel;
+  @ViewChild(ClrStepperPanel) step: ClrStepperPanel;
   form = new FormGroup({ groupName: new FormGroup({}) });
 }
 
@@ -41,8 +40,7 @@ class ReactiveFormsTestComponent {
   `,
 })
 class TemplateFormsTestComponent {
-  @ViewChild(ClrStepperPanel, { static: false })
-  step: ClrStepperPanel;
+  @ViewChild(ClrStepperPanel) step: ClrStepperPanel;
 }
 
 class MockStepperService extends StepperService {

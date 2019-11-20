@@ -41,8 +41,7 @@ export class ClrTextareaContainer implements DynamicWrapper, OnDestroy {
   private subscriptions: Subscription[] = [];
   invalid = false;
   _dynamic = false;
-  @ContentChild(ClrLabel, { static: false })
-  label: ClrLabel;
+  @ContentChild(ClrLabel) label: ClrLabel;
   control: NgControl;
 
   constructor(

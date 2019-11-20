@@ -34,7 +34,7 @@ class TestComponent {
   @ViewChild('dummyButton', { static: true })
   buttonElRef: ElementRef;
 
-  @ViewChild(ClrFocusOnViewInit, { static: false, read: ElementRef })
+  @ViewChild(ClrFocusOnViewInit, { read: ElementRef })
   focusOnItElRef: ElementRef;
 }
 
@@ -51,7 +51,7 @@ class TestDisablingViaInjection {
   display = false;
   @ViewChild('dummyButton', { static: true })
   buttonElRef: ElementRef;
-  @ViewChild(ClrFocusOnViewInit, { static: false, read: ElementRef })
+  @ViewChild(ClrFocusOnViewInit, { read: ElementRef })
   focusOnItElRef: ElementRef;
 }
 

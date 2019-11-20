@@ -63,8 +63,7 @@ export class ClrDatagridRow<T = any> implements AfterContentInit, AfterViewInit 
   /* reference to the enum so that template can access */
   public SELECTION_TYPE = SelectionType;
 
-  @ViewChild(ClrExpandableAnimation, { static: false })
-  expandAnimation: ClrExpandableAnimation;
+  @ViewChild(ClrExpandableAnimation) expandAnimation: ClrExpandableAnimation;
 
   /**
    * Model of the row, to use for selection
@@ -169,8 +168,7 @@ export class ClrDatagridRow<T = any> implements AfterContentInit, AfterViewInit 
     }
   }
 
-  @ViewChild('detailButton', { static: false })
-  detailButton;
+  @ViewChild('detailButton') detailButton;
 
   private _detailOpenLabel = '';
   @Input()
@@ -244,11 +242,11 @@ export class ClrDatagridRow<T = any> implements AfterContentInit, AfterViewInit 
 
   public displayCells = false;
 
-  @ViewChild('stickyCells', { static: false, read: ViewContainerRef })
+  @ViewChild('stickyCells', { read: ViewContainerRef })
   _stickyCells: ViewContainerRef;
-  @ViewChild('scrollableCells', { static: false, read: ViewContainerRef })
+  @ViewChild('scrollableCells', { read: ViewContainerRef })
   _scrollableCells: ViewContainerRef;
-  @ViewChild('calculatedCells', { static: false, read: ViewContainerRef })
+  @ViewChild('calculatedCells', { read: ViewContainerRef })
   _calculatedCells: ViewContainerRef;
 
   private wrappedInjector: Injector;

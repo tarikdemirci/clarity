@@ -125,8 +125,6 @@ class TestComponent {}
   providers: [VerticalNavService, VerticalNavIconService, VerticalNavGroupRegistrationService],
 })
 class TestComponentWithGroup {
-  @ViewChild('group', { static: false })
-  navGroup: ClrVerticalNavGroup;
-  @ViewChild('link', { static: false })
-  navLink: ClrVerticalNavLink;
+  @ViewChild('group') navGroup: ClrVerticalNavGroup;
+  @ViewChild('link') navLink: ClrVerticalNavLink;
 }

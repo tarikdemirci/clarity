@@ -39,8 +39,7 @@ class TestWrapper {
   `,
 })
 class TestComponent {
-  @ViewChild(ClrTab, { static: false })
-  tabInstance: ClrTab;
+  @ViewChild(ClrTab) tabInstance: ClrTab;
 }
 
 describe('Tab', () => {

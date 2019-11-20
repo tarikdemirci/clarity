@@ -10,8 +10,7 @@ import { ClrWizard } from '@clr/angular';
 
 @Component({ selector: 'clr-wizard-reset', templateUrl: './wizard-reset.demo.html' })
 export class WizardResetDemo implements OnInit {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
 
   public open: boolean = false;
 

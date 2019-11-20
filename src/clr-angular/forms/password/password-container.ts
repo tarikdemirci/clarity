@@ -83,8 +83,7 @@ export class ClrPasswordContainer implements DynamicWrapper, OnDestroy {
   get clrToggle() {
     return this._toggle;
   }
-  @ContentChild(ClrLabel, { static: false })
-  label: ClrLabel;
+  @ContentChild(ClrLabel) label: ClrLabel;
 
   constructor(
     private ifErrorService: IfErrorService,

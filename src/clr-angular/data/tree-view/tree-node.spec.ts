@@ -29,8 +29,7 @@ import { TreeNodeModel } from './models/tree-node.model';
   </clr-tree-node>`,
 })
 class TestComponent {
-  @ViewChild('node', { static: false })
-  tree: ClrTreeNode<void>;
+  @ViewChild('node') tree: ClrTreeNode<void>;
 
   selected = ClrSelectedState.UNSELECTED;
   expanded = false;

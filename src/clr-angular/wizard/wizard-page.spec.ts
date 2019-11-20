@@ -78,12 +78,9 @@ class TypescriptTestComponent {
     `,
 })
 class TemplateTestComponent {
-  @ViewChild('nav', { static: false })
-  navigationTemplateTester: ClrWizardPage;
-  @ViewChild('lifecycle', { static: false })
-  lifecycleTemplateTester: ClrWizardPage;
-  @ViewChild('other', { static: false })
-  otherTemplateTester: ClrWizardPage;
+  @ViewChild('nav') navigationTemplateTester: ClrWizardPage;
+  @ViewChild('lifecycle') lifecycleTemplateTester: ClrWizardPage;
+  @ViewChild('other') otherTemplateTester: ClrWizardPage;
 
   public navTwoWayBindingPassed: boolean = false;
   public testId = 'ohai';
@@ -208,24 +205,15 @@ class TemplateTestComponent {
     `,
 })
 class ViewTestComponent {
-  @ViewChild('viewTestWizard', { static: false })
-  testWizard: ClrWizard;
-  @ViewChild('viewTestWizardPageOne', { static: false })
-  pageOne: ClrWizardPage;
-  @ViewChild('viewTestWizardPageTwo', { static: false })
-  pageTwo: ClrWizardPage;
-  @ViewChild('viewTestWizardPageThree', { static: false })
-  pageThree: ClrWizardPage;
-  @ViewChild('viewTestWizardPageFour', { static: false })
-  pageFour: ClrWizardPage;
-  @ViewChild('wizardPreviousBtn', { static: false })
-  wizardPreviousBtn: ClrWizardButton;
-  @ViewChild('pagePreviousBtn', { static: false })
-  pagePreviousBtn: ClrWizardButton;
-  @ViewChild('wizardCancelBtn', { static: false })
-  wizardCancelBtn: ClrWizardButton;
-  @ViewChild('pageCancelBtn', { static: false })
-  pageCancelBtn: ClrWizardButton;
+  @ViewChild('viewTestWizard') testWizard: ClrWizard;
+  @ViewChild('viewTestWizardPageOne') pageOne: ClrWizardPage;
+  @ViewChild('viewTestWizardPageTwo') pageTwo: ClrWizardPage;
+  @ViewChild('viewTestWizardPageThree') pageThree: ClrWizardPage;
+  @ViewChild('viewTestWizardPageFour') pageFour: ClrWizardPage;
+  @ViewChild('wizardPreviousBtn') wizardPreviousBtn: ClrWizardButton;
+  @ViewChild('pagePreviousBtn') pagePreviousBtn: ClrWizardButton;
+  @ViewChild('wizardCancelBtn') wizardCancelBtn: ClrWizardButton;
+  @ViewChild('pageCancelBtn') pageCancelBtn: ClrWizardButton;
 
   public projector = 'my projected content';
   public innerProjector = 12;

@@ -247,8 +247,7 @@ export default function(): void {
     `,
 })
 class TestCustomTriggerSignpost {
-  @ViewChild(ClrSignpost, { static: false })
-  signpost: ClrSignpost;
+  @ViewChild(ClrSignpost) signpost: ClrSignpost;
   openState: boolean = false;
 
   @ViewChild('outsideClick', { read: ElementRef, static: true })
@@ -273,8 +272,7 @@ class TestCustomTriggerSignpost {
     `,
 })
 class TestDefaultSignpost {
-  @ViewChild(ClrSignpost, { static: false })
-  signpost: ClrSignpost;
+  @ViewChild(ClrSignpost) signpost: ClrSignpost;
 
   openState: boolean = false;
 

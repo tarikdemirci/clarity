@@ -248,8 +248,7 @@ export default function(): void {
     `,
 })
 class TestComponent {
-  @ViewChild(ClrDropdown, { static: false })
-  dropdownInstance: ClrDropdown;
+  @ViewChild(ClrDropdown) dropdownInstance: ClrDropdown;
 
   menuClosable: boolean = true;
   testCnt: number = 0;

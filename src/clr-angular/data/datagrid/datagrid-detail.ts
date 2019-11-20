@@ -25,8 +25,7 @@ import { ClrDatagridDetailHeader } from './datagrid-detail-header';
     `,
 })
 export class ClrDatagridDetail {
-  @ContentChild(ClrDatagridDetailHeader, { static: false })
-  public header: ClrDatagridDetailHeader;
+  @ContentChild(ClrDatagridDetailHeader) public header: ClrDatagridDetailHeader;
 
   constructor(public detailService: DetailService, public commonStrings: ClrCommonStringsService) {}
 

@@ -47,10 +47,8 @@ import { IfActiveService } from '../../utils/conditional/if-active.service';
    `,
 })
 class TestComponent {
-  @ViewChild(ClrTabs, { static: false })
-  tabsInstance: ClrTabs;
-  @ViewChild('first', { static: false })
-  firstTab: ClrTab;
+  @ViewChild(ClrTabs) tabsInstance: ClrTabs;
+  @ViewChild('first') firstTab: ClrTab;
   inOverflow: boolean = false;
   layout: TabsLayout = TabsLayout.HORIZONTAL;
 }
@@ -70,8 +68,7 @@ class TestComponent {
    `,
 })
 class NgIfFirstTest {
-  @ViewChild('first', { static: false })
-  firstTab: ClrTab;
+  @ViewChild('first') firstTab: ClrTab;
 }
 
 @Component({
@@ -157,8 +154,7 @@ class NoClrIfActiveTest {
    `,
 })
 class ScalingTestComponent {
-  @ViewChild('content', { static: false })
-  content: ElementRef;
+  @ViewChild('content') content: ElementRef;
 }
 
 describe('Tabs', () => {

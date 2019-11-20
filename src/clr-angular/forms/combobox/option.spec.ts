@@ -23,8 +23,7 @@ import { OptionSelectionService } from './providers/option-selection.service';
   providers: [IfOpenService, { provide: POPOVER_HOST_ANCHOR, useExisting: ElementRef }, OptionSelectionService],
 })
 class TestComponent {
-  @ViewChild(ClrOption, { static: false })
-  option;
+  @ViewChild(ClrOption) option;
 }
 
 @Component({

@@ -57,14 +57,12 @@ export class DatagridStringFilter<T = any> extends DatagridFilterRegistrar<T, Da
   /**
    * We need the actual input element to automatically focus on it
    */
-  @ViewChild('input', { static: false })
-  public input: ElementRef;
+  @ViewChild('input') public input: ElementRef;
 
   /**
    * We grab the ClrDatagridFilter we wrap to register this StringFilter to it.
    */
-  @ViewChild(ClrDatagridFilter, { static: false })
-  public filterContainer: ClrDatagridFilter<T>;
+  @ViewChild(ClrDatagridFilter) public filterContainer: ClrDatagridFilter<T>;
   ngAfterViewInit() {
     this.subs.push(
       this.smartToggleService.openChange.subscribe(openChange => {

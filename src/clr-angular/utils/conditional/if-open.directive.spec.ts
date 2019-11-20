@@ -103,7 +103,6 @@ export default function(): void {
     `,
 })
 class IfOpenTest {
-  @ViewChild(ClrIfOpen, { static: false })
-  directive: ClrIfOpen;
+  @ViewChild(ClrIfOpen) directive: ClrIfOpen;
   openState: boolean = false;
 }

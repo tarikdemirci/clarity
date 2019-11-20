@@ -141,8 +141,7 @@ class TestFilter implements ClrDatagridStringFilterInterface<string> {
                                      [(clrFilterValue)]="filterValue"></clr-dg-string-filter>`,
 })
 class FullTest {
-  @ViewChild(CustomFilter, { static: false })
-  customFilter: CustomFilter;
+  @ViewChild(CustomFilter) customFilter: CustomFilter;
 
   filter: ClrDatagridStringFilterInterface<string>;
   filterValue: string;

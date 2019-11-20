@@ -42,10 +42,8 @@ export class ClrSelectContainer implements DynamicWrapper, OnDestroy {
   private subscriptions: Subscription[] = [];
   invalid = false;
   _dynamic = false;
-  @ContentChild(ClrLabel, { static: false })
-  label: ClrLabel;
-  @ContentChild(SelectMultipleControlValueAccessor, { static: false })
-  multiple: SelectMultipleControlValueAccessor;
+  @ContentChild(ClrLabel) label: ClrLabel;
+  @ContentChild(SelectMultipleControlValueAccessor) multiple: SelectMultipleControlValueAccessor;
   private multi = false;
   control: NgControl;
 

@@ -14,8 +14,7 @@ import { ClrWizard } from '@clr/angular';
   styles: ['.stress { color: red; }'],
 })
 export class WizardAltNextDemo implements OnInit {
-  @ViewChild('wizard', { static: false })
-  wizard: ClrWizard;
+  @ViewChild('wizard') wizard: ClrWizard;
 
   model: any;
   stressText = false;

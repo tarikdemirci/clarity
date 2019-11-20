@@ -86,12 +86,11 @@ export class ClrDateContainer implements DynamicWrapper, OnDestroy {
   invalid = false;
   focus = false;
   control: NgControl;
-  @ContentChild(ClrLabel, { static: false })
-  label: ClrLabel;
+  @ContentChild(ClrLabel) label: ClrLabel;
   @Input('clrPosition') position: PopoverPosition;
 
   private toggleButton: ElementRef;
-  @ViewChild('actionButton', { static: false })
+  @ViewChild('actionButton')
   set actionButton(button: ElementRef) {
     this.toggleButton = button;
   }

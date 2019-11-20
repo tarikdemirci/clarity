@@ -633,8 +633,7 @@ class IconsAndNavGroupTestComponent {}
     `,
 })
 class ViewBasicsTestComponent {
-  @ViewChild('nav', { static: false })
-  nav: ClrVerticalNav;
+  @ViewChild('nav') nav: ClrVerticalNav;
 
   groupToggle: boolean = true;
   iconToggle: boolean = true;
@@ -654,8 +653,7 @@ class APITestComponent {
   collapsed: boolean = false;
   collapsedChange: boolean;
 
-  @ViewChild('nav', { static: false })
-  nav: ClrVerticalNav;
+  @ViewChild('nav') nav: ClrVerticalNav;
 
   updateCollapsed(val: boolean) {
     this.collapsedChange = val;
