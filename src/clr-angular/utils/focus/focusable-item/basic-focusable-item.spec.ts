@@ -18,7 +18,7 @@ class SimpleHost {}
 
 interface TestContext {
   el: HTMLElement;
-  item: BasicFocusableItem;
+  item: FocusableItem;
   id: string;
 }
 
