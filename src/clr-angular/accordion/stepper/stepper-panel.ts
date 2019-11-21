@@ -47,11 +47,11 @@ export class ClrStepperPanel extends ClrAccordionPanel implements OnInit {
     return this.formGroupName ? this.formGroupName.control : this.ngModelGroup.control;
   }
 
-  get id() {
-    return this.formGroupName ? this.formGroupName.name : this.ngModelGroup.name;
+  get id(): string {
+    return this.formGroupName ? this.formGroupName.name.toString() : this.ngModelGroup.name;
   }
 
-  set id(_value) {} // overriding parent id required empty setter
+  set id(_value: string) {} // overriding parent id required empty setter
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,

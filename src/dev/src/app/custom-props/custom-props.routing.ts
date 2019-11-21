@@ -11,4 +11,4 @@ import { CustomPropsDemo } from './custom-props.demo';
 
 const ROUTES: Routes = [{ path: '', component: CustomPropsDemo }];
 
-export const ROUTING: ModuleWithProviders = RouterModule.forChild(ROUTES);
+export const ROUTING: ModuleWithProviders<RouterModule> = RouterModule.forChild(ROUTES);

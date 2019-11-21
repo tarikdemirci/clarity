@@ -10,4 +10,4 @@ import { TimelineDemo } from './timeline.demo';
 
 const ROUTES: Routes = [{ path: '', component: TimelineDemo }];
 
-export const ROUTING: ModuleWithProviders = RouterModule.forChild(ROUTES);
+export const ROUTING: ModuleWithProviders<RouterModule> = RouterModule.forChild(ROUTES);

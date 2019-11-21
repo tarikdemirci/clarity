@@ -11,4 +11,4 @@ import { StepperDemo } from './stepper.demo';
 
 const ROUTES: Routes = [{ path: '', component: StepperDemo }];
 
-export const ROUTING: ModuleWithProviders = RouterModule.forChild(ROUTES);
+export const ROUTING: ModuleWithProviders<RouterModule> = RouterModule.forChild(ROUTES);

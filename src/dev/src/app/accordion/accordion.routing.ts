@@ -11,4 +11,4 @@ import { AccordionDemo } from './accordion.demo';
 
 const ROUTES: Routes = [{ path: '', component: AccordionDemo }];
 
-export const ROUTING: ModuleWithProviders = RouterModule.forChild(ROUTES);
+export const ROUTING: ModuleWithProviders<RouterModule> = RouterModule.forChild(ROUTES);

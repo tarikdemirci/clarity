@@ -127,4 +127,4 @@ export const APP_ROUTES: Routes = [
   { path: 'wizard', loadChildren: () => import('./wizard/wizard.demo.module').then(m => m.WizardDemoModule) },
 ];
 
-export const ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+export const ROUTING: ModuleWithProviders<RouterModule> = RouterModule.forRoot(APP_ROUTES);
