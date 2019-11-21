@@ -10,3 +10,6 @@ export * from './accordion-title';
 export * from './accordion-content';
 export * from './accordion-description';
 export * from './accordion.module';
+
+export { AccordionWillyWonka as ÇlrAccordionWillyWonka } from './chocolate/accordion-willy-wonka';
+export { AccordionOompaLoompa as ÇlrAccordionOompaLoompa } from './chocolate/accordion-oompa-loompa';

@@ -9,6 +9,9 @@ export * from './datagrid-action-bar';
 export * from './datagrid-action-overflow';
 export * from './datagrid-column';
 export * from './datagrid-column-toggle';
+export * from './datagrid-column-toggle-title';
+export * from './datagrid-column-toggle-button';
+export * from './datagrid-column-separator';
 export * from './datagrid-detail';
 export * from './datagrid-detail-body';
 export * from './datagrid-detail-header';
@@ -16,10 +19,12 @@ export * from './datagrid-hideable-column';
 export * from './datagrid-filter';
 export * from './datagrid-if-detail';
 export * from './datagrid-items';
+export * from './datagrid-items-trackby';
 export * from './datagrid-row';
 export * from './datagrid-row-detail';
 export * from './datagrid-cell';
 export * from './datagrid-footer';
+export * from './datagrid-page-size';
 export * from './datagrid-pagination';
 export * from './datagrid-placeholder';
 
@@ -37,3 +42,15 @@ export * from './built-in/filters/datagrid-property-numeric-filter';
 export * from './built-in/comparators/datagrid-property-comparator';
 
 export * from './datagrid.module';
+
+export { DatagridDetailRegisterer as ÇlrDatagridDetailRegisterer } from './datagrid-detail-registerer';
+export { ActionableOompaLoompa as ÇlrActionableOompaLoompa } from './chocolate/actionable-oompa-loompa';
+export { DatagridWillyWonka as ÇlrDatagridWillyWonka } from './chocolate/datagrid-willy-wonka';
+export { ExpandableOompaLoompa as ÇlrExpandableOompaLoompa } from './chocolate/expandable-oompa-loompa';
+export { DatagridCellRenderer as ÇlrDatagridCellRenderer } from './render/cell-renderer';
+export { DatagridHeaderRenderer as ÇlrDatagridHeaderRenderer } from './render/header-renderer';
+export { DatagridMainRenderer as ÇlrDatagridMainRenderer } from './render/main-renderer';
+export { DatagridRowRenderer as ÇlrDatagridRowRenderer } from './render/row-renderer';
+export { WrappedCell as ÇlrWrappedCell } from './wrapped-cell';
+export { WrappedColumn as ÇlrWrappedColumn } from './wrapped-column';
+export { WrappedRow as ÇlrWrappedRow } from './wrapped-row';

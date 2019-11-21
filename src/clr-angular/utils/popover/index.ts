@@ -14,3 +14,7 @@ export * from './providers/popover-position.service';
 export * from './providers/popover-toggle.service';
 export * from './popover-anchor';
 export * from './popover-content';
+
+export { ClrPopoverCloseButton as ÇlrPopoverCloseButton } from './popover-close-button';
+export { ClrPopoverOpenCloseButton as ÇlrPopoverOpenCloseButton } from './popover-open-close-button';
+export { ClrPopoverModuleNext as ÇlrPopoverNextModule } from './popover.module';

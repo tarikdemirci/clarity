@@ -2,8 +2,8 @@
   "extends": "./../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@clr/core": ["dist/clr-core"],
-      "@clr/core/*": ["dist/clr-core/*"]
+      "@clr/core": ["../clr-core"],
+      "@clr/core/*": ["../clr-core/*"]
     }
   }
 }
