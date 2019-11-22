@@ -4,7 +4,7 @@
  * The full license information can be found in LICENSE in the root directory of this project.
  */
 
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Injectable } from '@angular/core';
 import { TestBed, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 import { ReactiveFormsModule, FormGroup, FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +43,7 @@ class TemplateFormsTestComponent {
   @ViewChild(ClrStepperPanel) step: ClrStepperPanel;
 }
 
+@Injectable()
 class MockStepperService extends StepperService {
   step = new BehaviorSubject<AccordionPanelModel>(new AccordionPanelModel('groupName', 0));
   activeStep = new Subject<string>();

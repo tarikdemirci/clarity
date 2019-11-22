@@ -43,7 +43,8 @@ module.exports = function(karma) {
   const config = {
     autoWatch: true,
     basePath: '',
-    frameworks: ['parallel', 'jasmine', 'jasmine-matchers', '@angular-devkit/build-angular'],
+    // TODO NG9 - Turn on parallel again
+    frameworks: ['jasmine', 'jasmine-matchers', '@angular-devkit/build-angular'],
     plugins: [
       // Frameworks
       require('karma-jasmine'),
@@ -80,16 +81,6 @@ module.exports = function(karma) {
         included: true,
         watched: false,
       },
-
-      // Clarity UI
-      {
-        pattern: './src/clr-angular/main.scss',
-        included: false,
-        watched: true,
-      },
-
-      // Entry point to all our spec files
-      { pattern: './src/clr-angular/test.ts', watched: false },
     ],
     client: {
       clearContext: false, // leave Jasmine Spec Runner output visible in browser

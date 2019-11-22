@@ -36,11 +36,13 @@ export class IfErrorService implements OnDestroy {
 
   // Subscribe to the status change events, only after touched and emit the control
   private listenForChanges() {
-    this.subscriptions.push(
-      this.control.statusChanges.subscribe(() => {
-        this.sendValidity();
-      })
-    );
+    if (this.control && this.control.statusChanges) {
+      this.subscriptions.push(
+        this.control.statusChanges.subscribe(() => {
+          this.sendValidity();
+        })
+      );
+    }
   }
 
   private sendValidity() {
