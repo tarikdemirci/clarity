@@ -13,7 +13,7 @@ import { ArrowKeyDirection } from '../../../utils/focus/arrow-key-direction.enum
 import { FOCUS_SERVICE_PROVIDER, FocusService } from '../../../utils/focus/focus.service';
 import { FocusableItem } from '../../../utils/focus/focusable-item/focusable-item';
 import { MockFocusableItem } from '../../../utils/focus/focusable-item/focusable-item.mock';
-import * as linkers from '../../../utils/focus/focusable-item/linkers';
+import { Linkers } from '../../../utils/focus/focusable-item/linkers';
 import { UNIQUE_ID } from '../../../utils/id-generator/id-generator.service';
 import { DROPDOWN_FOCUS_HANDLER_PROVIDER, DropdownFocusHandler } from './dropdown-focus-handler.service';
 import any = jasmine.any;
@@ -182,7 +182,7 @@ export default function(): void {
       );
 
       it('links received children vertically', function(this: TestContext) {
-        const spy = spyOn(linkers, 'linkVertical');
+        const spy = spyOn(Linkers, 'linkVertical');
         this.focusHandler.addChildren(this.children);
         expect(spy).toHaveBeenCalledWith(this.children);
       });
@@ -315,7 +315,7 @@ export default function(): void {
       });
 
       it('links received children back to the trigger', function(this: TestContext) {
-        const spy = spyOn(linkers, 'linkParent');
+        const spy = spyOn(Linkers, 'linkParent');
         this.focusHandler.addChildren(this.children);
         expect(spy).toHaveBeenCalledWith(this.children, any(Observable), ArrowKeyDirection.LEFT);
       });

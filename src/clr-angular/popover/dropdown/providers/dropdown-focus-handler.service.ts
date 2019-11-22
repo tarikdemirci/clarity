@@ -14,7 +14,7 @@ import { UNIQUE_ID } from '../../../utils/id-generator/id-generator.service';
 import { ArrowKeyDirection } from '../../../utils/focus/arrow-key-direction.enum';
 import { FocusService } from '../../../utils/focus/focus.service';
 import { FocusableItem } from '../../../utils/focus/focusable-item/focusable-item';
-import { linkParent, linkVertical } from '../../../utils/focus/focusable-item/linkers';
+import { Linkers } from '../../../utils/focus/focusable-item/linkers';
 import { wrapObservable } from '../../../utils/focus/wrap-observable';
 import { take } from 'rxjs/operators';
 
@@ -199,9 +199,9 @@ export class DropdownFocusHandler implements FocusableItem {
   }
 
   addChildren(children: FocusableItem[]) {
-    linkVertical(children);
+    Linkers.linkVertical(children);
     if (this.parent) {
-      linkParent(children, this.closeAndGetThis(), ArrowKeyDirection.LEFT);
+      Linkers.linkParent(children, this.closeAndGetThis(), ArrowKeyDirection.LEFT);
     }
     this.children.next(children);
   }
