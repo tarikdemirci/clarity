@@ -5,6 +5,9 @@
     "types": ["jasmine", "node"],
     "target": "es5"
   },
+  "angularCompilerOptions": {
+    "enableIvy": false
+  },
   "files": ["test.ts"],
   "include": ["**/*.spec.ts", "**/*.d.ts"]
 }
