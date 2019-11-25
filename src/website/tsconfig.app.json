@@ -12,5 +12,6 @@
       "@clr/core/*": ["../clr-core/*"]
     }
   },
+  "include": ["typings.d.ts"],
   "files": ["src/main.ts", "src/polyfills.ts"]
 }

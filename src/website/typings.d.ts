@@ -13,7 +13,7 @@ declare module '!raw-loader!*' {
   export = contents;
 }
 
-declare var window: Window;
+declare var window: Window & typeof globalThis;
 
 interface Window {
   ClarityIcons: any;
