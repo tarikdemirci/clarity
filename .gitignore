@@ -15,9 +15,15 @@ src/clr-angular/.ng_pkg_build
 /tests/tslint/dist
 
 /reports
+# Only exists if Bazel was run
+/bazel-out
 
 # dependencies
 /node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
@@ -35,6 +41,7 @@ src/clr-angular/.ng_pkg_build
 # !.vscode/tasks.json
 # !.vscode/launch.json
 # !.vscode/extensions.json
+.history/*
 
 # misc
 .awcache
@@ -43,6 +50,7 @@ src/clr-angular/.ng_pkg_build
 /coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
 /typings
 sauceconnect.log

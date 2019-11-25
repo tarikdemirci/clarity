@@ -6,6 +6,7 @@
     "ng": "ng",
     "clean": "del ./dist",
     "start": "npm run angular:dev:start",
+    "postinstall": "ngcc",
     "build": "npm-run-all build:ci website:build",
     "build:ci": "npm-run-all --parallel format lint clean && npm-run-all build:libs build:apps test",
     "build:libs": "npm-run-all ui:build icons:build core:build angular:build schematics:build angular:golden core:golden",

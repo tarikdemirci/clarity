@@ -1,11 +1,17 @@
 {
-  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "src",
   "projects": {
     "dev": {
-      "root": "",
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "src/dev",
+      "sourceRoot": "src/dev/src",
       "prefix": "app",
       "architect": {
         "build": {
@@ -22,6 +28,7 @@
             "main": "src/dev/src/main.ts",
             "polyfills": "src/dev/src/polyfills.ts",
             "tsConfig": "src/dev/tsconfig.app.json",
+            "aot": true,
             "assets": [
               {
                 "glob": "favicon.ico",
@@ -55,7 +62,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
@@ -100,8 +106,9 @@
       }
     },
     "clr-icons": {
-      "root": "src/clr-icons",
       "projectType": "library",
+      "root": "src/clr-icons",
+      "sourceRoot": "src/clr-icons/src",
       "prefix": "clr",
       "architect": {
         "test": {
@@ -115,15 +122,16 @@
       }
     },
     "clr-angular": {
-      "root": "src/clr-angular",
       "projectType": "library",
+      "root": "src/clr-angular",
+      "sourceRoot": "src/clr-angular/src",
       "prefix": "clr",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "project": "src/clr-angular/ng-package.json",
-            "tsConfig": "src/clr-angular/tsconfig.lib.json"
+            "tsConfig": "src/clr-angular/tsconfig.lib.json",
+            "project": "src/clr-angular/ng-package.json"
           },
           "configurations": {
             "production": {
@@ -151,25 +159,26 @@
       }
     },
     "website": {
-      "root": "src/website/",
-      "sourceRoot": "src/website/src",
       "projectType": "application",
-      "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
+          "style": "scss",
           "spec": false
         }
       },
+      "root": "src/website",
+      "sourceRoot": "src/website/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/website/browser",
             "index": "src/website/src/index.html",
             "main": "src/website/src/main.ts",
             "polyfills": "src/website/src/polyfills.ts",
             "tsConfig": "src/website/tsconfig.app.json",
+            "aot": true,
             "assets": [
               "src/website/src/favicon.ico",
               "src/website/src/manifest.json",
@@ -214,7 +223,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -226,7 +234,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -254,8 +263,8 @@
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "project": "src/clr-core/ng-package.json",
-            "tsConfig": "src/clr-core/tsconfig.lib.json"
+            "tsConfig": "src/clr-core/tsconfig.lib.json",
+            "project": "src/clr-core/ng-package.json"
           },
           "configurations": {
             "production": {
@@ -341,7 +350,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
