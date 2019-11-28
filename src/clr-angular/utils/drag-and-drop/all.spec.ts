@@ -18,7 +18,7 @@ import ClrDragHandleRegistrarSpecs from './providers/drag-handle-registrar.servi
 import ClrDraggableSnapshotSpecs from './providers/draggable-snapshot.service.spec';
 import ClrGlobalDragModeSpecs from './providers/global-drag-mode.service.spec';
 
-fdescribe('Drag And Drop', function() {
+describe('Drag And Drop', function() {
   describe('Providers', function() {
     ClrDragAndDropEventBusSpecs();
     ClrDragEventListenerSpecs();
