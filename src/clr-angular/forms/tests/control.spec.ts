@@ -84,7 +84,7 @@ function fullTest(description, testContainer, testControl, testComponent, contro
 
     it('correctly extends WrappedFormControl', () => {
       expect(control.injector.get(testControl).wrapperType).toBe(testContainer);
-      expect(WrappedFormControl.prototype.ngOnInit).toHaveBeenCalled();
+      expect(testControl.prototype instanceof WrappedFormControl).toBeTrue();
     });
 
     it('should set the class on the control with ControlClassService', () => {
