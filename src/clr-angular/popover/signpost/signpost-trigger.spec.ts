@@ -84,7 +84,6 @@ export default function(): void {
             #anchor
             type="button"
             class="signpost-action btn btn-small btn-link"
-            [ngClass]="{active: open}"
             clrSignpostTrigger>
             <clr-icon shape="info"></clr-icon>
         </button>
