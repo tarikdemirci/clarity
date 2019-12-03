@@ -43,11 +43,11 @@ export default function(): void {
         expect(this.clarityDirective.updateView).toBeDefined();
 
         // when openState is false there should be no embedded views
-        expect(this.clarityDirective.container._embeddedViews.length).toEqual(0);
+        expect(this.clarityDirective.container.length).toEqual(0);
 
         // We can call the updateView function
         this.clarityDirective.updateView(true);
-        expect(this.clarityDirective.container._embeddedViews.length).toEqual(1);
+        expect(this.clarityDirective.container.length).toEqual(1);
       });
 
       it('emits an openChange event', function() {

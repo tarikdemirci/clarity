@@ -10,7 +10,7 @@ import { ClrIfActive } from './if-active.directive';
 import { IF_ACTIVE_ID_PROVIDER, IfActiveService } from './if-active.service';
 
 export default function(): void {
-  fdescribe('IfActive Directive', function() {
+  describe('IfActive Directive', function() {
     describe('Typescript API', function() {
       beforeEach(function() {
         TestBed.configureTestingModule({
