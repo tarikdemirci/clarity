@@ -5,54 +5,22 @@
  */
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Needed to recreate issue #1084
 import { By } from '@angular/platform-browser';
-import { DatagridRenderStep } from '../enums/render-step.enum';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Needed to recreate issue #1084
+import { ClrDatagridColumn } from '../datagrid-column';
 import { ClrDatagridModule } from '../datagrid.module';
-import { TestContext } from '../helpers.spec';
+import { DatagridRenderStep } from '../enums/render-step.enum';
+import { DATAGRID_SPEC_PROVIDERS, TestContext } from '../helpers.spec';
+import { ColumnsService } from '../providers/columns.service';
 import { DatagridHeaderRenderer } from './header-renderer';
 import { DatagridMainRenderer } from './main-renderer';
 import { DatagridRenderOrganizer } from './render-organizer';
 import { MockDatagridRenderOrganizer } from './render-organizer.mock';
-import { DisplayModeService } from '../providers/display-mode.service';
-import { StateDebouncer } from '../providers/state-debouncer.provider';
-import { Page } from '../providers/page';
-import { ExpandableRowsCount } from '../providers/global-expandable-rows';
-import { Selection } from '../providers/selection';
-import { RowActionService } from '../providers/row-action-service';
-import { FiltersProvider } from '../providers/filters';
-import { Sort } from '../providers/sort';
-import { Items } from '../providers/items';
-import { TableSizeService } from '../providers/table-size.service';
-import { StateProvider } from '../providers/state.provider';
-import { DomAdapter } from '../../../utils/dom-adapter/dom-adapter';
-import { ClrDatagridColumn } from '../datagrid-column';
-import { ColumnsService } from '../providers/columns.service';
 import { DatagridRowRenderer } from './row-renderer';
-
-const PROVIDERS = [
-  DisplayModeService,
-  Selection,
-  Sort,
-  FiltersProvider,
-  Page,
-  Items,
-  {
-    provide: DatagridRenderOrganizer,
-    useClass: MockDatagridRenderOrganizer,
-  },
-  RowActionService,
-  ExpandableRowsCount,
-  StateDebouncer,
-  StateProvider,
-  TableSizeService,
-  DomAdapter,
-];
 
 export default function(): void {
   describe('DatagridMainRenderer directive', function() {
-    // @TODO NG9
-    xdescribe('static loading', function() {
+    describe('static loading', function() {
       let context: TestContext<DatagridMainRenderer<number>, StaticTest>;
       let organizer: MockDatagridRenderOrganizer;
       let resizeSpy: jasmine.Spy;
@@ -61,7 +29,18 @@ export default function(): void {
 
       beforeEach(function() {
         resizeSpy = spyOn(DatagridRenderOrganizer.prototype, 'resize');
-        context = this.createWithOverride(DatagridMainRenderer, StaticTest, [], [], PROVIDERS);
+        context = this.createWithOverrideDirective(
+          DatagridMainRenderer,
+          StaticTest,
+          DATAGRID_SPEC_PROVIDERS,
+          [],
+          [
+            {
+              provide: DatagridRenderOrganizer,
+              useClass: MockDatagridRenderOrganizer,
+            },
+          ]
+        );
         organizer = <MockDatagridRenderOrganizer>context.getClarityProvider(DatagridRenderOrganizer);
         computeStateSpy = spyOn(DatagridHeaderRenderer.prototype, 'getColumnWidthState');
         columnsService = context.getClarityProvider(ColumnsService);
@@ -173,7 +152,7 @@ export default function(): void {
         TestBed.configureTestingModule({
           imports: [BrowserAnimationsModule, ClrDatagridModule],
           declarations: [RenderWidthTest],
-          providers: PROVIDERS,
+          providers: DATAGRID_SPEC_PROVIDERS,
         });
         context = TestBed.createComponent(RenderWidthTest);
         context.detectChanges();

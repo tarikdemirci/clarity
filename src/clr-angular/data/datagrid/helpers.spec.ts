@@ -8,7 +8,7 @@
  * when we have the time. This will be very helpful in future refactors due to Angular upgrades, or simply
  * just to avoid leaks since destroying fixtures is automatic with this.
  */
-import { DebugElement, InjectionToken, Type } from '@angular/core';
+import { DebugElement, InjectionToken, Type, Component, Directive } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -128,7 +128,7 @@ export function addHelpers(): void {
       return (this._context = new TestContext<D, C>(clarityDirective, testComponent));
     };
 
-    this.createWithOverride = <D, C>(
+    this.createWithOverrideComponent = <D, C>(
       clarityDirective: Type<D>,
       testComponent: Type<C>,
       providers: any[] = [],
@@ -146,7 +146,27 @@ export function addHelpers(): void {
       });
       return (this._context = new TestContext<D, C>(clarityDirective, testComponent));
     };
+
+    this.createWithOverrideDirective = <D, C>(
+      clarityDirective: Type<D>,
+      testComponent: Type<C>,
+      providers: any[] = [],
+      extraDirectives: Type<any>[] = [],
+      serviceOverrides: any[]
+    ) => {
+      TestBed.configureTestingModule({
+        imports: [ClarityModule, NoopAnimationsModule],
+        declarations: [testComponent, ...extraDirectives],
+        providers: providers,
+      }).overrideDirective(clarityDirective, {
+        set: {
+          providers: serviceOverrides,
+        },
+      });
+      return (this._context = new TestContext<D, C>(clarityDirective, testComponent));
+    };
   });
+
   afterEach(function() {
     if (this._context) {
       this._context.fixture.destroy();

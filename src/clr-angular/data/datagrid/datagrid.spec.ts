@@ -935,7 +935,7 @@ export default function(): void {
       let displayModeService: MockDisplayModeService;
 
       beforeEach(function() {
-        context = this.createWithOverride(ClrDatagrid, ProjectionTest, [], [], DATAGRID_SPEC_PROVIDERS);
+        context = this.createWithOverrideComponent(ClrDatagrid, ProjectionTest, [], [], DATAGRID_SPEC_PROVIDERS);
         displayModeService = <MockDisplayModeService>context.getClarityProvider(DisplayModeService);
       });
 
