@@ -10,7 +10,7 @@ import { ClrIfActive } from './if-active.directive';
 import { IF_ACTIVE_ID_PROVIDER, IfActiveService } from './if-active.service';
 
 export default function(): void {
-  describe('IfActive Directive', function() {
+  fdescribe('IfActive Directive', function() {
     describe('Typescript API', function() {
       beforeEach(function() {
         TestBed.configureTestingModule({
@@ -45,11 +45,11 @@ export default function(): void {
         expect(this.clarityDirective.updateView).toBeDefined();
 
         // when activeState is false there should be no embedded views
-        expect(this.clarityDirective.container._embeddedViews.length).toEqual(0);
+        expect(this.clarityDirective.container.length).toBe(0);
 
         // We can call the updateView function
         this.clarityDirective.updateView(true);
-        expect(this.clarityDirective.container._embeddedViews.length).toEqual(1);
+        expect(this.clarityDirective.container.length).toBe(1);
       });
 
       it('emits an activeChange event only if the active state changes', function() {
