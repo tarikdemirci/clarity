@@ -10,6 +10,7 @@ import { AlertIconAndTypesService } from './providers/icon-and-types.service';
 import { MultiAlertService } from './providers/multi-alert.service';
 import { isBooleanAttributeSet } from '../../utils/component/is-boolean-attribute-set';
 import { ClrCommonStringsService } from '../../utils/i18n/common-strings.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'clr-alert',
@@ -19,10 +20,10 @@ import { ClrCommonStringsService } from '../../utils/i18n/common-strings.service
 })
 export class ClrAlert {
   constructor(
-    public iconService: AlertIconAndTypesService,
-    public cdr: ChangeDetectorRef,
-    @Optional() public multiAlertService: MultiAlertService,
-    public commonStrings: ClrCommonStringsService
+    private iconService: AlertIconAndTypesService,
+    private cdr: ChangeDetectorRef,
+    @Optional() private multiAlertService: MultiAlertService,
+    private commonStrings: ClrCommonStringsService
   ) {}
 
   @Input('clrAlertSizeSmall') isSmall: boolean = false;
@@ -79,33 +80,33 @@ export class ClrAlert {
     return this.iconService.iconInfoFromType(this.iconService.alertType).cssClass;
   }
 
-  private previouslyHidden = false;
-  private hidden = false;
+  private _hidden: boolean;
 
-  private detectChangesIfNeeded() {
-    if (this.previouslyHidden !== this.hidden) {
-      this.previouslyHidden = this.hidden;
+  set hidden(value: boolean) {
+    if (value !== this._hidden) {
+      this._hidden = value;
       this.cdr.detectChanges();
     }
   }
 
-  get isHidden() {
-    if (this.multiAlertService) {
-      // change detection issue in production mode causes currentAlert to be undefined when only the first alert exists
-      // https://github.com/vmware/clarity/issues/2430
-      if (this.multiAlertService.currentAlert === this || this.multiAlertService.count === 0) {
-        if (this.hidden === true) {
-          this.previouslyHidden = true;
-          this.hidden = false;
-        }
-      } else if (this.hidden === false) {
-        this.previouslyHidden = false;
-        this.hidden = true;
-      }
-      this.detectChangesIfNeeded();
-    }
+  get hidden() {
+    return this._hidden;
+  }
 
-    return this.hidden;
+  private subscriptions: Subscription[] = [];
+
+  ngOnInit() {
+    if (this.multiAlertService) {
+      this.subscriptions.push(
+        this.multiAlertService.changes.subscribe(() => {
+          this.hidden = this.multiAlertService.currentAlert !== this;
+        })
+      );
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   close(): void {
