@@ -60,8 +60,8 @@ class DynamicBlock {
 
 export default function(): void {
   'use strict';
-  // @TODO NG9
-  xdescribe('StackBlock', () => {
+
+  describe('StackBlock', () => {
     let fixture: ComponentFixture<any>;
     let compiled: any;
 

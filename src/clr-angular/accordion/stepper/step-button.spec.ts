@@ -34,8 +34,7 @@ class MockStepperService extends StepperService {
   navigateToNextPanel() {}
 }
 
-// @TODO NG9
-xdescribe('ClrStepButton', () => {
+describe('ClrStepButton', () => {
   let fixture: ComponentFixture<any>;
   let testComponent: TestComponent;
 

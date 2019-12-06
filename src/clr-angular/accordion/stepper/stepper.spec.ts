@@ -53,8 +53,7 @@ class TemplateFormsTestComponent {
   submit() {}
 }
 
-// @TODO NG9
-xdescribe('ClrStepper', () => {
+describe('ClrStepper', () => {
   describe('Template API', () => {
     let fixture: ComponentFixture<any>;
     let testComponent: ReactiveFormsTestComponent;
