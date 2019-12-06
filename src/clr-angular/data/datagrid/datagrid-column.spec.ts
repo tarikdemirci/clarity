@@ -179,8 +179,7 @@ export default function(): void {
         expect(this.context.clarityDirective.field).toBe('test');
       });
 
-      // @TODO NG9
-      xit('receives an input for the property filter value', function() {
+      it('receives an input for the property filter value', function() {
         this.context = this.create(ClrDatagridColumn, PreFilterTest, DATAGRID_SPEC_PROVIDERS);
         this.context.testComponent.field = 'test';
         this.context.testComponent.filterValue = 'M';
@@ -215,8 +214,7 @@ export default function(): void {
         expect(this.context.testComponent.sortOrder).toBe(ClrDatagridSortOrder.ASC);
       });
 
-      // @TODO NG9
-      xit('offers two-way binding on the filtered state', function() {
+      it('offers two-way binding on the filtered state', function() {
         this.context = this.create(ClrDatagridColumn, PreFilterTest, DATAGRID_SPEC_PROVIDERS);
         this.context.testComponent.field = 'test';
         this.context.testComponent.filterValue = 'M';
@@ -392,8 +390,7 @@ export default function(): void {
         expect(title.querySelector('.my-string-filter')).toBeNull();
       });
 
-      // @TODO NG9
-      xit('un-registers the correct filter', function() {
+      it('un-registers the correct filter', function() {
         this.context = this.create(ClrDatagridColumn, UnregisterTest, DATAGRID_SPEC_PROVIDERS);
         this.context.testComponent.show = true;
         this.context.clarityDirective.filters.add(new TestFilter());
@@ -426,8 +423,7 @@ export default function(): void {
         expect(context.clarityDirective.colType).toBe('string');
       });
 
-      // @TODO NG9
-      xit('when setting clrDgColType to `number` it should use the numeric filter', function() {
+      it('when setting clrDgColType to `number` it should use the numeric filter', function() {
         context.testComponent.type = 'number';
         context.testComponent.field = 'id';
         context.detectChanges();
