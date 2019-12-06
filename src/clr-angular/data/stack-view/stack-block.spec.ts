@@ -7,7 +7,6 @@ import { Component, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ClrStackBlock } from './stack-block';
 import { ClrStackView } from './stack-view';
 import { ClrStackViewModule } from './stack-view.module';
@@ -59,8 +58,6 @@ class DynamicBlock {
 }
 
 export default function(): void {
-  'use strict';
-
   describe('StackBlock', () => {
     let fixture: ComponentFixture<any>;
     let compiled: any;
