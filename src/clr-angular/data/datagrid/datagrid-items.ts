@@ -60,6 +60,7 @@ export class ClrDatagridItems<T> implements DoCheck, OnDestroy {
     }
     if (this.differ) {
       const changes = this.differ.diff(this._rawItems);
+      console.log(changes);
       if (changes) {
         // TODO: not very efficient right now,
         // but premature optimization is the root of all evil.
