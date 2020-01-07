@@ -1,12 +1,22 @@
 /*
- * Copyright (c) 2016-2019 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2016-2020 VMware, Inc. All Rights Reserved.
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
-import { Component, Directive, NgModule, Type, ViewContainerRef, ElementRef, Renderer2, Injector } from '@angular/core';
+import {
+  Component,
+  Directive,
+  NgModule,
+  Type,
+  ViewContainerRef,
+  ElementRef,
+  Renderer2,
+  Injector,
+  ViewChild,
+} from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { NgControl, FormsModule } from '@angular/forms';
+import { NgControl, FormsModule, NgModel } from '@angular/forms';
 
 import { DynamicWrapper } from '../../utils/host-wrapping/dynamic-wrapper';
 import { HostWrapper } from '../../utils/host-wrapping/host-wrapper';
@@ -103,6 +113,7 @@ class WithMultipleNgContent {}
 @Component({ template: `<test-wrapper3><input testControl3 [(ngModel)]="model" required /><test-wrapper>` })
 class WithControl {
   model = '';
+  @ViewChild(NgModel) input: NgModel;
 }
 
 interface TestContext {
@@ -246,8 +257,10 @@ export default function(): void {
 
       it('adds the aria-describedby for error messages', function(this: TestContext) {
         setupTest(this, WithControl, TestControl3);
-        this.input.focus();
-        this.input.blur();
+        const demo = this.fixture.componentInstance;
+        const ifErrorService = this.fixture.debugElement.query(By.directive(TestWrapper)).injector.get(IfErrorService);
+        demo.input.control.markAsTouched();
+        ifErrorService.triggerStatusChange();
         this.fixture.detectChanges();
 
         expect(this.input.getAttribute('aria-describedby')).toContain('-error');

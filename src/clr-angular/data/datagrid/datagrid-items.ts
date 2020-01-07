@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2016-2020 VMware, Inc. All Rights Reserved.
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
@@ -60,7 +60,6 @@ export class ClrDatagridItems<T> implements DoCheck, OnDestroy {
     }
     if (this.differ) {
       const changes = this.differ.diff(this._rawItems);
-      console.log(changes);
       if (changes) {
         // TODO: not very efficient right now,
         // but premature optimization is the root of all evil.
