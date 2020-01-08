@@ -52,7 +52,7 @@ describe('Abstract Popover', function() {
     });
 
     it('opens the abstract popover only after IfOpenService is in open state', () => {
-      expect(ifOpenService.open).toBe(false);
+      expect(ifOpenService.open).toBeFalsy();
       expect(fixture.componentInstance.testPopover).toBeUndefined();
 
       ifOpenService.open = true;

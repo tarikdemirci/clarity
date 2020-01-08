@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2016-2020 VMware, Inc. All Rights Reserved.
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
@@ -77,7 +77,9 @@ export default function(): void {
 
     it('initializes the recursion service with the correct values', function(this: Context) {
       expect(this.featuresService.recursion).toBeTruthy();
-      expect(this.featuresService.recursion.template).toBe(this.hostComponent.template);
+      expect(this.featuresService.recursion.template.elementRef.nativeElement).toBe(
+        this.hostComponent.template.elementRef.nativeElement
+      );
       expect(this.featuresService.recursion.root).toEqual([
         new RecursiveTreeNodeModel(TEST_ROOT, null, getChildren, this.featuresService),
       ]);
