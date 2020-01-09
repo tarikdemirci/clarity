@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2016-2020 VMware, Inc. All Rights Reserved.
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
@@ -172,6 +172,9 @@ export class ClrDatagridColumn<T = any> extends DatagridFilterRegistrar<T, ClrDa
         } else {
           this.setFilter(new DatagridStringFilterImpl(new DatagridPropertyStringFilter(field)));
         }
+        if (this.initFilterValue) {
+          this.updateFilterValue = this.initFilterValue;
+        }
       }
       if (!this._sortBy) {
         this._sortBy = new DatagridPropertyComparator(field);
@@ -328,6 +331,10 @@ export class ClrDatagridColumn<T = any> extends DatagridFilterRegistrar<T, ClrDa
     }
   }
 
+  // This property holds filter value temporarily while this.filter property is not yet registered
+  // When this.filter is registered, this property value would be used update this.filter.value
+  private initFilterValue: string | [number, number];
+
   public get filterValue() {
     if (this.filter instanceof DatagridStringFilterImpl || this.filter instanceof DatagridNumericFilterImpl) {
       return this.filter.value;
@@ -336,23 +343,24 @@ export class ClrDatagridColumn<T = any> extends DatagridFilterRegistrar<T, ClrDa
 
   @Input('clrFilterValue')
   public set updateFilterValue(newValue: string | [number, number]) {
-    if (!this.filter) {
-      return;
-    }
-    if (this.filter instanceof DatagridStringFilterImpl) {
-      if (!newValue || typeof newValue !== 'string') {
-        newValue = '';
+    if (this.filter) {
+      if (this.filter instanceof DatagridStringFilterImpl) {
+        if (!newValue || typeof newValue !== 'string') {
+          newValue = '';
+        }
+        if (newValue !== this.filter.value) {
+          this.filter.value = newValue;
+        }
+      } else if (this.filter instanceof DatagridNumericFilterImpl) {
+        if (!newValue || !(newValue instanceof Array)) {
+          newValue = [null, null];
+        }
+        if (newValue.length === 2 && (newValue[0] !== this.filter.value[0] || newValue[1] !== this.filter.value[1])) {
+          this.filter.value = newValue;
+        }
       }
-      if (newValue !== this.filter.value) {
-        this.filter.value = newValue;
-      }
-    } else if (this.filter instanceof DatagridNumericFilterImpl) {
-      if (!newValue || !(newValue instanceof Array)) {
-        newValue = [null, null];
-      }
-      if (newValue.length === 2 && (newValue[0] !== this.filter.value[0] || newValue[1] !== this.filter.value[1])) {
-        this.filter.value = newValue;
-      }
+    } else {
+      this.initFilterValue = newValue;
     }
   }
 
