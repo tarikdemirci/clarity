@@ -159,30 +159,45 @@ export class ClrDatagridColumn<T = any> extends DatagridFilterRegistrar<T, ClrDa
   * via the [clrDgColType] input by setting it to 'string' or 'number'.
   */
 
+  private _colType: 'string' | 'number' = 'string';
+
+  get colType() {
+    return this._colType;
+  }
+
   // TODO: We might want to make this an enum in the future
-  @Input('clrDgColType') colType: 'string' | 'number' = 'string';
+  @Input('clrDgColType') set colType(value: 'string' | 'number') {
+    this._colType = value;
+    if (!this.customFilter && !this.filter && this._colType && this._field) {
+      this.setupDefaultFilter(this._field, this._colType);
+    }
+  }
 
   @Input('clrDgField')
   public set field(field: string) {
     if (typeof field === 'string') {
       this._field = field;
-      if (!this.customFilter) {
-        if (this.colType === 'number') {
-          this.setFilter(new DatagridNumericFilterImpl(new DatagridPropertyNumericFilter(field)));
-        } else {
-          this.setFilter(new DatagridStringFilterImpl(new DatagridPropertyStringFilter(field)));
-        }
-        if (this.initFilterValue) {
-          this.updateFilterValue = this.initFilterValue;
-          // This initFilterValue should be used only once after the filter registration
-          // So deleting this property value to prevent it from being used again
-          // if this field property is set again
-          delete this.initFilterValue;
-        }
+      if (!this.customFilter && this._colType) {
+        this.setupDefaultFilter(this._field, this._colType);
       }
       if (!this._sortBy) {
-        this._sortBy = new DatagridPropertyComparator(field);
+        this._sortBy = new DatagridPropertyComparator(this._field);
       }
+    }
+  }
+
+  private setupDefaultFilter(field: string, colType: 'string' | 'number') {
+    if (colType === 'number') {
+      this.setFilter(new DatagridNumericFilterImpl(new DatagridPropertyNumericFilter(field)));
+    } else if (colType === 'string') {
+      this.setFilter(new DatagridStringFilterImpl(new DatagridPropertyStringFilter(field)));
+    }
+    if (this.filter && this.initFilterValue) {
+      this.updateFilterValue = this.initFilterValue;
+      // This initFilterValue should be used only once after the filter registration
+      // So deleting this property value to prevent it from being used again
+      // if this field property is set again
+      delete this.initFilterValue;
     }
   }
 
