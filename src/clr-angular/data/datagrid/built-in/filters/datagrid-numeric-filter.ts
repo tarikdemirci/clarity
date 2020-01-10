@@ -60,6 +60,13 @@ export class DatagridNumericFilter<T = any> extends DatagridFilterRegistrar<T, D
     } else {
       this.setFilter(new DatagridNumericFilterImpl(value));
     }
+    if(this.initFilterValues) {
+      this.value = this.initFilterValues;
+      // This initFilterValues should be used only once after the filter registration
+      // So deleting this property value to prevent it from being used again
+      // if this customStringFilter property is set again
+      delete this.initFilterValues;
+    }
   }
 
   /**
@@ -91,27 +98,31 @@ export class DatagridNumericFilter<T = any> extends DatagridFilterRegistrar<T, D
   /**
    * Common setter for the input values
    */
+
+  private initFilterValues: [number, number];
+
   public get value() {
     return [this.filter.low, this.filter.high];
   }
 
   @Input('clrFilterValue')
   public set value(values: [number, number]) {
-    if (!this.filter) {
-      return;
-    }
-    if (values && (values[0] !== this.filter.low || values[1] !== this.filter.high)) {
-      if (typeof values[0] === 'number') {
-        this.filter.low = values[0];
-      } else {
-        this.filter.low = null;
+    if (this.filter) {
+      if (values && (values[0] !== this.filter.low || values[1] !== this.filter.high)) {
+        if (typeof values[0] === 'number') {
+          this.filter.low = values[0];
+        } else {
+          this.filter.low = null;
+        }
+        if (typeof values[1] === 'number') {
+          this.filter.high = values[1];
+        } else {
+          this.filter.high = null;
+        }
+        this.filterValueChange.emit(values);
       }
-      if (typeof values[1] === 'number') {
-        this.filter.high = values[1];
-      } else {
-        this.filter.high = null;
-      }
-      this.filterValueChange.emit(values);
+    }else {
+      this.initFilterValues = values;
     }
   }
 

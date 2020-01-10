@@ -174,6 +174,10 @@ export class ClrDatagridColumn<T = any> extends DatagridFilterRegistrar<T, ClrDa
         }
         if (this.initFilterValue) {
           this.updateFilterValue = this.initFilterValue;
+          // This initFilterValue should be used only once after the filter registration
+          // So deleting this property value to prevent it from being used again
+          // if this field property is set again
+          delete this.initFilterValue;
         }
       }
       if (!this._sortBy) {
